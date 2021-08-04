@@ -20,7 +20,7 @@ namespace RothurMod.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 33;
+			item.damage = 34;
 			item.melee = true;
 			item.width = 63;
 			item.height = 63;
@@ -28,7 +28,7 @@ namespace RothurMod.Items.Weapons
 			item.useAnimation = 28;
 			item.useStyle = 1;
 			item.knockBack = 5;
-			item.value = 50000;
+			item.value = Item.buyPrice(0, 3, 50, 0);
 			item.rare = 0;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = false;

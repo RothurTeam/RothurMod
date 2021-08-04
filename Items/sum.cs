@@ -30,7 +30,7 @@ namespace RothurMod.Items
 		public override void SetDefaults() {
 			item.width = 20;
 			item.height = 20;
-			item.maxStack = 999;
+			item.maxStack = 20;
 			item.useAnimation = 30;
 			item.useTime = 30;
 			item.useStyle = 4;
@@ -38,7 +38,7 @@ namespace RothurMod.Items
 		}
 		public override bool CanUseItem(Player player)
 		{
-		    return !NPC.AnyNPCs(mod.NPCType("PuritySpirit"));
+		    return Main.hardMode && !Main.dayTime && !NPC.AnyNPCs(mod.NPCType("PuritySpirit"));
 		}
 		
 		public override bool UseItem(Player player)
@@ -59,7 +59,8 @@ namespace RothurMod.Items
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.SoulofNight, 10);
+			recipe.AddIngredient(ItemID.SoulofNight, 8);
+			recipe.AddIngredient(ItemID.CrystalShard, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();

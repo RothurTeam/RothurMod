@@ -35,6 +35,7 @@ namespace RothurMod.Tiles
 			TileObjectData.newTile.StyleMultiplier = 3;
 			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
 			TileObjectData.newSubTile.AnchorValidTiles = new int[] { TileType<ExampleSand>() };
+			TileObjectData.newSubTile.AnchorValidTiles = new int[] { TileType<CrystalBlock>() };
 			TileObjectData.addSubTile(1);
 			TileObjectData.addTile(Type);
 

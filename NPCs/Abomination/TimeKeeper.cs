@@ -56,6 +56,7 @@ namespace RothurMod.NPCs.Abomination
         npc.noGravity = true;
 		npc.buffImmune[BuffID.Poisoned] = true;
 		npc.buffImmune[BuffID.OnFire] = true;
+		npc.buffImmune[BuffID.Frostburn] = true;
     }
 	
 	public override void ScaleExpertStats(int numPlayers, float bossLifeScale)

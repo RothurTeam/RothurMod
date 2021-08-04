@@ -28,10 +28,10 @@ namespace RothurMod.Items.Weapons
 			item.noMelee = true; //so the item's animation doesn't do damage
 			item.knockBack = 5;
 			item.value = 15000;
-			item.rare = ItemRarityID.Green;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = ProjectileType<LunarProjectile>();
+			item.shoot = ProjectileType<MoonShotProj>();
 			item.shootSpeed = 19f;
 		}
 

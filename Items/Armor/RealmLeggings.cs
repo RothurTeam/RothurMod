@@ -11,11 +11,9 @@ namespace RothurMod.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Realm leggings");
-			Tooltip.SetDefault(""
-				+ "\n5% increased movement speed");
+			Tooltip.SetDefault("");
 			DisplayName.AddTranslation(GameCulture.Russian, "Реалмитовые ботинки");
-			Tooltip.AddTranslation(GameCulture.Russian, ""
-				+ "\n5% к скорости передвижения");
+			Tooltip.AddTranslation(GameCulture.Russian, "");
 		}
 
 		public override void SetDefaults() {
@@ -23,11 +21,11 @@ namespace RothurMod.Items.Armor
 			item.height = 18;
 			item.value = 1000;
 			item.rare = 0;
-			item.defense = 1;
+			item.defense = 2;
 		}
 
 		public override void UpdateEquip(Player player) {
-			player.moveSpeed += 0.05f;
+			
 		}
 
 		public override void AddRecipes() {

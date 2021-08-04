@@ -93,6 +93,7 @@ namespace RothurMod.Items
 			item.CloneDefaults(ItemID.ArmorStatue);
 			item.createTile = TileType<ExampleStatue>();
 			item.placeStyle = 0;
+			item.value = 100000;
 		}
 	}
 

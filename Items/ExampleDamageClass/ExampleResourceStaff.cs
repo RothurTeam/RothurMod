@@ -26,9 +26,12 @@ namespace RothurMod.Items.ExampleDamageClass
 		public override void SafeSetDefaults() {
 			item.CloneDefaults(ItemID.EmeraldStaff);
 			item.Size = new Vector2(28, 36);
-			item.damage = 13;
+			item.damage = 12;
+			item.useTime = 19;
+			item.useAnimation = 19;
 			item.knockBack = 3;
 			item.magic = false;
+			item.noMelee = true;
 			item.rare = 0;
 			item.mana = 0; // Make sure to nullify the mana usage of the staff here, as it still copies the setdefaults of the amethyst staff.
 			item.useStyle = ItemUseStyleID.HoldingOut;

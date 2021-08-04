@@ -23,7 +23,7 @@ namespace RothurMod.Items.ExampleDamageClass
 		public override void SafeSetDefaults() 
 		{
 			item.CloneDefaults(ItemID.Shuriken);
-			item.damage = 24;
+			item.damage = 22;
 			item.width = 42;
 			item.height = 42;
 			item.useTime = 20;

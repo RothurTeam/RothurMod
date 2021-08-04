@@ -28,7 +28,7 @@ namespace RothurMod.Projectiles
             projectile.minion = true;
             projectile.friendly = true;
 			projectile.penetrate = -1;
-			projectile.timeLeft = 250;
+			projectile.timeLeft = 180;
         }
 		
 		public override Color? GetAlpha(Color lightColor) {

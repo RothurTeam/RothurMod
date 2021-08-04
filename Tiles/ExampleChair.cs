@@ -27,7 +27,7 @@ namespace RothurMod.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Example Chair");
+			name.SetDefault("Crystal Chair");
 			AddMapEntry(new Color(200, 200, 200), name);
 			dustType = DustType<Sparkle>();
 			disableSmartCursor = true;

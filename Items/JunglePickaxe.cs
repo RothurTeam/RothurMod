@@ -36,7 +36,7 @@ namespace RothurMod.Items
         {
             ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.JungleSpores, 10);
-			recipe.AddIngredient(ItemID.Wood, 10);
+			recipe.AddIngredient(ItemID.RichMahogany, 10);
             recipe.AddTile(TileID.Anvils);   
             recipe.SetResult(this);  
             recipe.AddRecipe();

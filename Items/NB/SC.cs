@@ -23,8 +23,8 @@ namespace RothurMod.Items.NB
 			item.useAnimation = 8;
 			item.useStyle = 1;
 			item.knockBack = 1;
-			item.value = 1000;
-			item.rare = 0;
+			item.value = 5000;
+			item.rare = 2;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}

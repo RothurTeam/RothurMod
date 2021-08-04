@@ -26,7 +26,7 @@ namespace RothurMod.Items.ExampleDamageClass
 		public override void SafeSetDefaults() {
 			item.CloneDefaults(ItemID.RubyStaff);
 			item.Size = new Vector2(28, 36);
-			item.damage = 15;
+			item.damage = 17;
 			item.knockBack = 1;
 			item.magic = false;
 			item.rare = 0;
@@ -39,7 +39,7 @@ namespace RothurMod.Items.ExampleDamageClass
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<BossItem>(), 10);
+			recipe.AddIngredient(ItemType<BossItem>(), 4);
 			recipe.AddIngredient(ItemType<ExampleSoul>(), 6);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);

@@ -13,8 +13,9 @@ namespace RothurMod.Items
 	{
 		public override void SetStaticDefaults() {
 		    DisplayName.SetDefault("Thermo gun");
-			Tooltip.SetDefault("");
+			Tooltip.SetDefault("50% chance to shoot a more powerful projectile");
 			DisplayName.AddTranslation(GameCulture.Russian, "Термо пушка");
+			Tooltip.AddTranslation(GameCulture.Russian, "50% шанс выстрелить более мощным снарядом");
 		}
 
 		public override void SetDefaults() {
@@ -43,7 +44,7 @@ namespace RothurMod.Items
             {
 				 if (Main.rand.Next(2) == 0)
 				{
-				type = ProjectileID.FrostburnArrow;
+				type = mod.ProjectileType("ThermoProj");
 				};
             }
             return true;

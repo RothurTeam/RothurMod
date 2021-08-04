@@ -14,22 +14,22 @@ namespace RothurMod.Items.Armor
 			base.SetStaticDefaults();
 			DisplayName.SetDefault("Bloody Breastplate");
 			Tooltip.SetDefault(""
-				+ "+11%  damage");
+				+ "+11% necro damage");
 			DisplayName.AddTranslation(GameCulture.Russian, "Кровавый нагрудник");
 			Tooltip.AddTranslation(GameCulture.Russian, ""
-				+ "+11%  урона");
+				+ "+11% некромантического урона");
 		}
 
 		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
-			item.value = 20000;
-			item.rare = 0;
+			item.value = 22000;
+			item.rare = ItemRarityID.Red;
 			item.defense = 5;
 		}
 
 		public override void UpdateEquip(Player player) {
-			player.allDamage += 0.11f;		
+			ExampleDamagePlayer.ModPlayer(player).NecroDamageAdd += 0.11f;	
 		}
 
 		public override void AddRecipes() {

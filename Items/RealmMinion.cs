@@ -25,9 +25,10 @@ namespace RothurMod.Items
 	public class RealmMinionBuff : ModBuff
 	{
 		public override void SetDefaults() {
-			DisplayName.SetDefault("Realm Shard");
-			Description.SetDefault("Реалмитовый осколок будет сражаться за тебя");
+			DisplayName.SetDefault("Realm Shards");
+			Description.SetDefault("Realm Shards will fight for you");
 			DisplayName.AddTranslation(GameCulture.Russian, "Реалмитовые осколки");
+			Description.AddTranslation(GameCulture.Russian, "Реалмитовый осколок будет сражаться за тебя");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -156,6 +157,7 @@ namespace RothurMod.Items
 				projectile.timeLeft = 2;
 			}
 			#endregion
+			
 
 			#region General behavior
 			Vector2 idlePosition = player.Center;
@@ -301,6 +303,8 @@ namespace RothurMod.Items
 			// Some visuals here
 			Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.78f);
 			#endregion
+			
+			
 		}
 	}
 }

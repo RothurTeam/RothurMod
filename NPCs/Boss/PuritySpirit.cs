@@ -28,6 +28,7 @@ namespace RothurMod.NPCs.Boss
     {
         int phase = 1;
         int projectileTimer = 0;
+		int projectileBallTimer = 0;
         int laserPhaseTimer = 0;
 		int projTimer = 0;
         bool laserPhase = false;
@@ -47,8 +48,8 @@ namespace RothurMod.NPCs.Boss
 
         public override void SetDefaults() {
             npc.boss = true;
-            npc.width = 170;
-            npc.height = 150;
+            npc.width = 65;
+            npc.height = 65;
 			npc.aiStyle = 5; 
             npc.lifeMax = 20000;
             npc.damage = 35;
@@ -93,35 +94,29 @@ namespace RothurMod.NPCs.Boss
             npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);  //boss life scale in expertmode
             npc.damage = (int)(npc.damage * 0.6f);  //boss damage increase in expermode
         }
-        public override void AI() {
+      public override void AI() {
             npc.TargetClosest(true);
-            float speed = 19f;
+            float speed = 13f;
             if (phase == 1) {
-                if (projectileTimer == 60 * 2) { // 2nd num - in seconds
+                if (projectileTimer == 75 * 1) { // 2nd num - in seconds
                     Vector2 targetPosition = Main.player[npc.target].Center;
-                    //direction = targetPosition - npc.Center;
-                     Vector2 direction = new Vector2(1f, 1f) * 45;
+                    direction = targetPosition - npc.Center;
+                    // Vector2 direction = new Vector2(1f, 1f) * 45;
                     direction.Normalize();
                     direction *= speed;
                     type = ProjectileID.EyeLaser;
-					//int damage = -110;
-                    Projectile.NewProjectile(npc.position, direction, type, -45, -405f);
+                    Projectile.NewProjectile(npc.position, direction, type, 30, 0f);
                     projectileTimer = 0;
                 }
                 projectileTimer++;
-				 
-				
-                
-			var SpawmGrabli = rand.Next(0, 615);
-				if (SpawmGrabli == 0) {
-					NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("RevivedDirt"));
+				var SpawmCrabs = rand.Next(0, 600);
+				if (SpawmCrabs == 0) {
+					NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("Observer"));
 				}
-				
             }
-			
             if (phase == 2) {
                 if (!laserPhase) {
-                    if (projectileTimer == 40 * 3) {
+                    if (projectileTimer == 60 * 3) {
                         int projType = rand.Next(0, 2);
                         if (projType == 0) {
                             laserPhase = true;
@@ -130,27 +125,25 @@ namespace RothurMod.NPCs.Boss
                             direction.Normalize();
                             direction *= speed;
                             type = ProjectileID.EyeLaser;
-							//int damage = -140;
-                            Projectile.NewProjectile(npc.position, direction, type, 0, -25f);
+                            Projectile.NewProjectile(npc.position, direction, type, 30, 0f);
                             laserPhaseShoots++;
                         }
                         else {
                             int randAngle;
-                            for (int i = 0; i < 20; i++) {
+                            for (int i = 0; i < 18; i++) {
                                 randAngle = rand.Next(0, 360);
                                 direction = new Vector2((float)Math.Cos(randAngle), (float)Math.Sin(randAngle));
                                 direction.Normalize();
                                 direction *= speed;
                                 type = ProjectileID.DemonSickle;
-                                Projectile.NewProjectile(npc.position, direction, type, 0, -5f);
+                                Projectile.NewProjectile(npc.position, direction, type, 33, 0f);
                             }
                             Vector2 targetPosition = Main.player[npc.target].Center;
                             direction = targetPosition - npc.Center;
                             direction.Normalize();
                             direction *= speed;
                             type = ProjectileID.DemonSickle;
-							//int damage = -115;
-                            Projectile.NewProjectile(npc.position, direction, type, 0, -5f);
+                            Projectile.NewProjectile(npc.position, direction, type, 33, 0f);
                         }
                         projectileTimer = 0;
                     }
@@ -163,8 +156,7 @@ namespace RothurMod.NPCs.Boss
                         direction.Normalize();
                         direction *= speed;
                         type = ProjectileID.EyeLaser;
-						//int damage = -120;
-                        Projectile.NewProjectile(npc.position, direction, type, 0, -5f);
+                        Projectile.NewProjectile(npc.position, direction, type, 33, 0f);
                         laserPhaseShoots++;
                         laserPhaseTimer = 0;
                     }
@@ -175,57 +167,42 @@ namespace RothurMod.NPCs.Boss
                     laserPhaseTimer++;
                 }
             }
-			
-			if (phase == 3) {
-               if (!lPhase) {
-                    if (projectileTimer == 50 * 3) {
-                        int projType = rand.Next(0, 3);
-                            int randAngle;
-                            for (int i = 0; i < 20; i++) {
-                                randAngle = rand.Next(0, 360);
-                                direction = new Vector2((float)Math.Cos(randAngle), (float)Math.Sin(randAngle));
-                                direction.Normalize();
-                                direction *= speed;
-                                type = ProjectileID.EyeLaser;
-                                Projectile.NewProjectile(npc.position, direction, type, 0, 0f);
-                            }
-                            Vector2 targetPosition = Main.player[npc.target].Center;
-                            direction = targetPosition - npc.Center;
-                            direction.Normalize();
-                            direction *= speed;
-                            type = ProjectileID.EyeLaser;
-							//int damage = -115;
-                            Projectile.NewProjectile(npc.position, direction, type, 0, 0f);
-                        projectileTimer = 0;
-                    }
-                    projTimer++;
-                }
-            }
-			
-            if (npc.life < 11000) {
+            if (npc.life < 12000) {
                 phase = 2;
-				//chatText = "Sorry, I'm hurt, you'll have to wait. Ouch!";
-				//Talk("Hello");
             }
-			if (npc.life < 11000 && BossText == false) {
-				//color.Color(255, 140, 0);
-				Main.NewText("Don't think this is the end", 255, 140, 0);
-				//line =
-                //Main.NewText("TestText", цвет, цвет, цвет)
+			
+			if (npc.life < 12000 && BossText == false) {
+				if (GetLang() == "ru-RU") {
+					Main.NewText("Не думай, что это конец", 255, 140, 0);
+					} else {
+					Main.NewText("Don't think this is the end", 255, 140, 0);
+					}
 				BossText = true;
 				return;
             }
 			if (npc.life < 5000 && BossTextOne == false) {
-				//color.Color(255, 140, 0);
-				Main.NewText("Stop pissing me off", 139, 0, 0);
-				//line =
-                //Main.NewText("TestText", цвет, цвет, цвет)
+				if (GetLang() == "ru-RU") {
+					Main.NewText("Ты мне надоел", 255, 140, 0);
+					} else {
+					Main.NewText("You're boring me", 255, 140, 0);
+					}
 				BossTextOne = true;
 				return;
+            }
+			if (npc.life < 5000) {
+                var SpawmSrabs = rand.Next(0, 670);
+				if (SpawmSrabs == 0) {
+					NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("ZeroObserver"));
+				}
             }
 			
 
         }
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
 		//BossText = false;
 		
 		//public override void BossText(){
@@ -255,7 +232,7 @@ namespace RothurMod.NPCs.Boss
 		
 		
 		public override void BossLoot(ref string name, ref int potionType) {
-			potionType = ItemID.LesserHealingPotion; 
+			potionType = ItemID.HealingPotion; 
 			
 			if (Main.rand.Next(7) == 0)
 				{
@@ -286,6 +263,9 @@ namespace RothurMod.NPCs.Boss
 				{
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HookItem"));
 				};
+				{
+				Item.NewItem(npc.getRect(), mod.ItemType("ShadowShard"), Main.rand.Next(14, 26)); 
+				};  
 				
 			}
 			

@@ -25,8 +25,7 @@ namespace RothurMod.Items.Weapons
 			item.height = 40;
 			item.scale = 1f;
 			item.rare = 0;
-			item.value = Item.sellPrice(silver: 20);
-
+			item.value = Item.buyPrice(0, 2, 50, 0);
 			item.melee = true;
 			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
 			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.

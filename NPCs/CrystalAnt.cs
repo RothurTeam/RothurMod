@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using RothurMod.Items.Placeable;
+using RothurMod.Tiles;
 
 namespace RothurMod.NPCs        
 {
@@ -19,13 +20,13 @@ namespace RothurMod.NPCs
          
       npc.width = 70;               
       npc.height = 40;              
-      npc.damage = 22;             
+      npc.damage = 15;             
       npc.defense = 6;             
-      npc.lifeMax = 70;            
+      npc.lifeMax = 50;            
       npc.HitSound = SoundID.NPCHit1 ;            
       npc.DeathSound = SoundID.NPCDeath2 ;          
       npc.value = 150f;             
-      npc.knockBackResist = 0.3f;      
+      npc.knockBackResist = 0.6f;      
       npc.aiStyle = 26;                   
       Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.WalkingAntlion]; 
       aiType = NPCID.WalkingAntlion;      
@@ -34,7 +35,7 @@ namespace RothurMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.dayTime && Main.tile[(spawnInfo.spawnTileX), (spawnInfo.spawnTileY)].type == mod.TileType("ExampleBlock") ? 8f : 0f; //100f is the spown rate so If you want your NPC to be rarer just change that value less the 100f or something.
+            return Main.tile[(spawnInfo.spawnTileX), (spawnInfo.spawnTileY)].type == mod.TileType("Crystal Block") ? 220f : 0f; //100f is the spown rate so If you want your NPC to be rarer just change that value less the 100f or something.
         }    
 		
 		

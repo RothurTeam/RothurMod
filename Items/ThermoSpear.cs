@@ -19,7 +19,7 @@ namespace RothurMod.Items
 		public override void SetDefaults() {
 			// Alter any of these values as you see fit, but you should probably keep useStyle on 1, as well as the noUseGraphic and noMelee bools
 			item.shootSpeed = 11f;
-			item.damage = 18;
+			item.damage = 14;
 			item.knockBack = 6f;
 			item.useStyle = 1;
 			item.useAnimation = 25;

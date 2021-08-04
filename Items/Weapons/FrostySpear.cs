@@ -25,7 +25,7 @@ namespace RothurMod.Items.Weapons
 			item.width = 32;
 			item.height = 32;
 			item.scale = 1f;
-			item.rare = ItemRarityID.Pink;
+			item.rare = 1;
 			item.value = Item.sellPrice(gold: 2);
 
 			item.melee = true;

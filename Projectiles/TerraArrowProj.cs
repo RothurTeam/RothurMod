@@ -11,8 +11,9 @@ namespace RothurMod.Projectiles
     {
         public override void SetDefaults()
         {
+			projectile.damage = 6;
             projectile.width = 14;  //Set the hitbox width
-            projectile.height = 32;  //Set the hitbox height
+            projectile.height = 18;  //Set the hitbox height
             projectile.aiStyle = 1; //How the projectile works
             projectile.friendly = true;  //Tells the game whether it is friendly to players/friendly npcs or not
             projectile.hostile = false; //Tells the game whether it is hostile to players or not

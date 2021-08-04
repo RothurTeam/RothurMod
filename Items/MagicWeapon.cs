@@ -22,14 +22,14 @@ namespace RothurMod.Items
             item.magic = true;                    
             item.width = 24;
             item.height = 28;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 28;
+            item.useAnimation = 28;
             item.useStyle = 5;       
             item.noMelee = true;
             item.knockBack = 2;        
             item.value = 1000;
             item.rare = 0;
-            item.mana = 5;             
+            item.mana = 4;             
             item.UseSound = SoundID.Item21;            
             item.autoReuse = true;
             item.shoot = mod.ProjectileType ("MagicProjectile");  

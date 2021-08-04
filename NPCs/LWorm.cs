@@ -126,14 +126,18 @@ namespace RothurMod.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)  
 	{
 		{
-			return !spawnInfo.playerSafe && Main.hardMode ? SpawnCondition.OverworldNightMonster.Chance * 0.8f : 0f;
+			return Main.hardMode ? SpawnCondition.OverworldNightMonster.Chance * 0.82f : 0f;
 		}
 	}
 
      public override void NPCLoot()
     {
-      Item.NewItem(npc.getRect(), mod.ItemType("LunarCrystal"), Main.rand.Next(2, 6));     
-	}
+      Item.NewItem(npc.getRect(), mod.ItemType("LunarCrystal"), Main.rand.Next(2, 6));  
+	  if (Main.rand.Next(17) == 0)
+		    {
+	          Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Lunachar"), Main.rand.Next(1, 3));
+			};
+	}   
 
 		public override void AI() {
 			if (npc.localAI[1] == 0f) {

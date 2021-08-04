@@ -26,8 +26,9 @@ namespace RothurMod.Items.NB
 	{
 		public override void SetDefaults() {
 			DisplayName.SetDefault("Grim follower");
-			Description.SetDefault("Grim follower будет сражаться за тебя");
+			Description.SetDefault("Grim follower will fight for you");
 			DisplayName.AddTranslation(GameCulture.Russian, "Мрачный последователь");
+			Description.AddTranslation(GameCulture.Russian, "Мрачный последователь будет сражаться за тебя");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -47,14 +48,15 @@ namespace RothurMod.Items.NB
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Staff Of Darkness");
-			Tooltip.SetDefault("Вызывает Grim follower, чтобы он сражался за вас");
+			Tooltip.SetDefault("Summons Grim follower to fight for you");
 			DisplayName.AddTranslation(GameCulture.Russian, "Посох мрака");
+			Tooltip.AddTranslation(GameCulture.Russian, "Вызывает мрачного последователя, чтобы он сражался за вас ");
 			ItemID.Sets.GamepadWholeScreenUseRange[item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
 			ItemID.Sets.LockOnIgnoresCollision[item.type] = true;
 		}
 
 		public override void SetDefaults() {
-			item.damage = 31;
+			item.damage = 34;
 			item.knockBack = 4f;
 			item.mana = 8;
 			item.width = 32;
@@ -63,7 +65,7 @@ namespace RothurMod.Items.NB
 			item.useAnimation = 36;
 			item.useStyle = 1;
 			item.value = Item.buyPrice(0, 6, 0, 0);
-			item.rare = 0;
+			item.rare = ItemRarityID.Purple;
 			item.UseSound = SoundID.Item44;
 
 			// These below are needed for a minion weapon
@@ -96,7 +98,7 @@ namespace RothurMod.Items.NB
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Grim follower");
-			// Sets the amount of frames this minion has on its spritesheet
+			DisplayName.AddTranslation(GameCulture.Russian, "Мрачный последователь");
 			Main.projFrames[projectile.type] = 4;
 			// This is necessary for right-click targeting
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
@@ -108,6 +110,11 @@ namespace RothurMod.Items.NB
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			// Don't mistake this with "if this is true, then it will automatically home". It is just for damage reduction for certain NPCs
 			ProjectileID.Sets.Homing[projectile.type] = true;
+		}
+		
+		public override Color? GetAlpha(Color lightColor) {
+			//return Color.White;
+			return new Color(255, 215, 0, 0) * (1f - (float)projectile.alpha / 255f);
 		}
 
 		public sealed override void SetDefaults() {
@@ -152,11 +159,11 @@ namespace RothurMod.Items.NB
 
 			#region General behavior
 			Vector2 idlePosition = player.Center;
-			idlePosition.Y -= 48f; // Go up 48 coordinates (three tiles from the center of the player)
+			idlePosition.Y -= 44f; // Go up 48 coordinates (three tiles from the center of the player)
 
 			// If your minion doesn't aimlessly move around when it's idle, you need to "put" it into the line of other summoned minions
 			// The index is projectile.minionPos
-			float minionPositionOffsetX = (10 + projectile.minionPos * 40) * -player.direction;
+			float minionPositionOffsetX = (9 + projectile.minionPos * 38) * -player.direction;
 			idlePosition.X += minionPositionOffsetX; // Go behind the player
 
 			// All of this code below this line is adapted from Spazmamini code (ID 388, aiStyle 66)
@@ -164,11 +171,11 @@ namespace RothurMod.Items.NB
 			// Teleport to player if distance is too big
 			Vector2 vectorToIdlePosition = idlePosition - projectile.Center;
 			float distanceToIdlePosition = vectorToIdlePosition.Length();
-			if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 2000f) {
+			if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 1980f) {
 				// Whenever you deal with non-regular events that change the behavior or position drastically, make sure to only run the code on the owner of the projectile,
 				// and then set netUpdate to true
 				projectile.position = idlePosition;
-				projectile.velocity *= 0.1f;
+				projectile.velocity *= 0.09f;
 				projectile.netUpdate = true;
 			}
 
@@ -235,8 +242,8 @@ namespace RothurMod.Items.NB
 			#region Movement
 
 			// Default movement parameters (here for attacking)
-			float speed = 8f;
-			float inertia = 20f;
+			float speed = 11f;
+			float inertia = 24f;
 
 			if (foundTarget) {
 				// Minion has a target: attack (here, fly towards the enemy)

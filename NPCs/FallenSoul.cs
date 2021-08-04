@@ -12,7 +12,9 @@ namespace RothurMod.NPCs
 	// It implements the `CustomBehavior` and `ShouldMove` virtual methods being overridden here, as well as the `acceleration` and `accelerationY` field being set in the class constructor.
 	public class FallenSoul : Hover
 	{
-		
+		bool purified = false;
+        bool colored = false;
+        Random rand = new Random();
 		public FallenSoul() {
 			acceleration = 0.06f;
 			accelerationY = 0.025f;
@@ -29,6 +31,7 @@ namespace RothurMod.NPCs
 			npc.height = 36;
 			npc.aiStyle = -1;
 			npc.damage = 0;
+			npc.value = 50f;
 			npc.friendly = true;
 			npc.dontTakeDamageFromHostiles = true;
 			animationType = NPCID.Wraith;
@@ -43,7 +46,7 @@ namespace RothurMod.NPCs
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)           
 		{
-			return SpawnCondition.OverworldNightMonster.Chance * 0.37f;
+			return SpawnCondition.OverworldNightMonster.Chance * 0.31f;
 		}
 
 		// Allows hitting the NPC with melee type weapons, even if it's friendly.
@@ -74,23 +77,48 @@ namespace RothurMod.NPCs
 		public override bool CanChat() {
 			return true;
 		}
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
 
 		public override string GetChat() {
 			// npc.SpawnedFromStatue value is kept when the NPC is transformed.
 			switch (Main.rand.Next(npc.SpawnedFromStatue ? 5 : 3)) {
 				case 0:
-					return "Thank you, now i don't have to haunt random people anymore, only you.";
+				if (GetLang() == "ru-RU") {
+							return "Спасибо, теперь мне больше не нужно преследовать случайных людей, только тебя.";
+							} else {
+							return "Thank you, now i don't have to haunt random people anymore, only you.";
+							}
 				case 1:
-					return "Keep breaking those evil altars, me and many others were cursed to haunt anyone who did so.";
+				if (GetLang() == "ru-RU") {
+							return "Продолжайте ломать эти злые алтари, я и многие другие были прокляты, чтобы преследовать любого, кто это сделал.";
+							} else {
+							return "Keep breaking those evil altars, me and many others were cursed to haunt anyone who did so.";
+							}
 				case 2:
-					return "Can you help me get into heaven?";
+				if (GetLang() == "ru-RU") {
+							return "Помоги мне попасть на небеса";
+							} else {
+							return "Help me get into heaven";
+							}
 				default:
-					return "Please stop messing with that haunted statue. Don't you know what \"RIP\" means?";
+					if (GetLang() == "ru-RU") {
+							return "Пожалуйста, перестань возиться с этой статуей с привидениями. Разве ты не знаешь, что значит RIP?";;
+							} else {
+							return "Please stop messing with that haunted statue. Don't you know what \"RIP\" means?";
+							}
 			}
 		}
 
 		public override void SetChatButtons(ref string button, ref string button2) {
-			button = "Send to heaven";
+			if (GetLang() == "ru-RU") {
+							button = "Отправить в рай";
+							} else {
+							button = "Send to heaven";
+							}
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
@@ -141,6 +169,7 @@ namespace RothurMod.NPCs
 			return true;
 		}
 	}
+	
 
 	public class PurificationPowder : GlobalProjectile
 	{

@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Microsoft.Xna.Framework;
 
 namespace RothurMod.Items
 {
@@ -29,7 +30,7 @@ namespace RothurMod.Items
 		}
 		public override bool CanUseItem(Player player)
 		{
-		    return !NPC.AnyNPCs(mod.NPCType("GolemOfNature"));
+		    return !Main.dayTime && !NPC.AnyNPCs(mod.NPCType("GolemOfNature"));
 		}
 		
 		public override bool UseItem(Player player)

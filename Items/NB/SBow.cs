@@ -31,7 +31,7 @@ namespace RothurMod.Items.NB
 			item.shootSpeed = 5;             
 			item.useAmmo = AmmoID.Arrow;           
             item.knockBack = 7;
-            item.value = 20000;
+            item.value = 5000;
             item.rare = 2;
             item.UseSound = SoundID.Item5;
             item.autoReuse = false;

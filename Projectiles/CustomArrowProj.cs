@@ -12,14 +12,14 @@ namespace RothurMod.Projectiles
         public override void SetDefaults()
         {
             projectile.width = 14;  //Set the hitbox width
-            projectile.height = 32;  //Set the hitbox height
+            projectile.height = 18;  //Set the hitbox height
             projectile.aiStyle = 1; //How the projectile works
             projectile.friendly = true;  //Tells the game whether it is friendly to players/friendly npcs or not
             projectile.hostile = false; //Tells the game whether it is hostile to players or not
             projectile.tileCollide = true; //Tells the game whether or not it can collide with a tile
             projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
             projectile.ranged = true;   //Tells the game whether it is a ranged projectile or not
-            projectile.penetrate = 1; //Tells the game how many enemies it can hit before being destroyed
+            projectile.penetrate = 3; //Tells the game how many enemies it can hit before being destroyed
             projectile.timeLeft = 500; //The amount of time the projectile is alive for
             projectile.light = 0.07f; //This defines the projectile light
             aiType = 1; // this is the projectile ai style . 1 is for arrows style

@@ -165,6 +165,7 @@ namespace RothurMod.NPCs
 				}
 			}
 			CustomBehavior(ref npc.ai[3]);
+			
 		}
 
 		public virtual void CustomBehavior(ref float ai) {

@@ -49,6 +49,9 @@ namespace RothurMod.Items.NB
 			if (Main.rand.NextBool(2)) {
 				player.QuickSpawnItem(ItemType<HookItem>());
 			}
+			{
+				player.QuickSpawnItem(mod.ItemType("ShadowShard"), Main.rand.Next(15, 27)); 
+			}; 
 			
 			
 			player.QuickSpawnItem(ItemType<ExampleDamageAccessory>());

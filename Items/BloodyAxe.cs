@@ -25,6 +25,8 @@ namespace RothurMod.Items
             item.useAnimation = 17;
             item.axe = 12; 
 			item.pick = 75;
+            item.axe = 17; 
+			item.pick = 100;
             item.useStyle = 1;
             item.knockBack = 7;
             item.value = 20000;

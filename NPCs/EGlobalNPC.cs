@@ -60,7 +60,7 @@ namespace RothurMod.NPCs
 			if (npc.lifeMax > 5 && npc.value > 0f) {
 				Item.NewItem(npc.getRect(), ItemType<ExampleItem>());
 				if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<ExamplePlayer>().ZoneExample) {
-					Item.NewItem(npc.getRect(), ItemType<BossItem>());
+					//Item.NewItem(npc.getRect(), ItemType<BossItem>());
 				}
 			}
 			if ((npc.type == NPCID.Pumpking && Main.pumpkinMoon || npc.type == NPCID.IceQueen && Main.snowMoon) && NPC.waveNumber > 10) {
@@ -85,18 +85,67 @@ namespace RothurMod.NPCs
 			}
 			
 			if (npc.type == NPCID.Harpy) {
-				if (Main.rand.Next(50) == 0)
+				if (Main.rand.Next(40) == 0)
 				{
 					Item.NewItem(npc.getRect(), ItemType<Items.Weapons.HeavenlyBow>());
 				}
-			}
-			
-			if (npc.type == NPCID.Harpy) {
-				if (Main.rand.Next(50) == 0)
+				if (Main.rand.Next(40) == 0)
 				{
 				Item.NewItem(npc.getRect(), ItemType<Items.Weapons.HeavenlySword>());
 				}
 			}
+			
+			if (npc.type == NPCID.GraniteGolem) {
+				if (Main.rand.Next(25) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Weapons.ExampleFlail>());
+				}
+			}
+			
+			if (npc.type == NPCID.Demon) {
+				if (Main.rand.Next(40) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.ExampleDamageClass.LuciferDaggers>());
+				}
+				if (Main.rand.Next(2) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.BossItem>());
+				}
+			}
+			
+			//special
+			if (npc.type == NPCID.WalkingAntlion) {
+				if (Main.rand.Next(33) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Special.AntEye>());
+				}
+			}
+			
+			if (npc.type == NPCID.Antlion) {
+				if (Main.rand.Next(33) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Special.AntEye>());
+				}
+			}
+			
+			if (npc.type == NPCID.EyeofCthulhu) {
+				{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BossItem"), 4);
+				}
+				if (Main.rand.Next(2) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Special.SharpTooth>());
+				}
+			}
+			if (npc.type == NPCID.KingSlime) {
+				{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BossItem"), 4);
+				}
+				if (Main.rand.Next(2) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Special.LargeGel>());
+				}
+			} 
 			// See BossBags.OpenVanillaBag to see how to handle adding items to the boss bags used in expert mode. You'll want to do both for most items added to boss drops.
 			if (npc.type == NPCID.WallofFlesh && !Main.expertMode) {
 				if (Main.rand.Next(4) == 0)
@@ -104,8 +153,26 @@ namespace RothurMod.NPCs
 				Item.NewItem(npc.getRect(), ItemType<Items.ExampleDamageClass.NecromancerEmblem>());
 				}
 			}
+			if (npc.type == NPCID.WallofFlesh && !Main.expertMode) {
+				if (Main.rand.Next(2) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.ExampleDamageClass.JudasToy>());
+				}
+			}
+			if (npc.type == NPCID.Golem && !Main.expertMode) {
+				if (Main.rand.Next(2) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Weapons.Special.GolemKnife>());
+				}
+			}
+			if (npc.type == NPCID.Plantera && !Main.expertMode) {
+				if (Main.rand.Next(2) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Weapons.Special.PlanteraKnife>());
+				}
+			}
 			if (npc.type == NPCID.SkeletronPrime) {
-				if (Main.rand.Next(4) == 0 && !Main.expertMode)
+				if (Main.rand.Next(3) == 0 && !Main.expertMode)
 				{
 				Item.NewItem(npc.getRect(), ItemType<Items.Weapons.TheBreaker>());
 				}
@@ -114,6 +181,13 @@ namespace RothurMod.NPCs
 				if (Main.rand.Next(3) == 0)
 				{
 				Item.NewItem(npc.getRect(), ItemType<Items.BrokenHeroBow>());
+				}
+			}
+			
+			if (!Main.expertMode && npc.boss && System.Array.IndexOf(new int[] { NPCID.EaterofWorldsBody, NPCID.EaterofWorldsHead, NPCID.EaterofWorldsTail }, npc.type) > -1) {
+				if (Main.rand.Next(3) == 0)
+				{
+				Item.NewItem(npc.getRect(), ItemType<Items.Weapons.RottenWorm>());
 				}
 			}
 			if (npc.type == NPCID.Bunny && npc.AnyInteractions()) {
@@ -164,8 +238,8 @@ namespace RothurMod.NPCs
 
 		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns) {
 			if (player.GetModPlayer<ExamplePlayer>().ZoneExample) {
-				spawnRate = (int)(spawnRate * 4f);
-				maxSpawns = (int)(maxSpawns * 4f);
+				spawnRate = (int)(spawnRate * 2f);
+				maxSpawns = (int)(maxSpawns * 2f);
 			}
 		}
 
@@ -176,18 +250,20 @@ namespace RothurMod.NPCs
 
 				// We can use shopCustomPrice and shopSpecialCurrency to support custom prices and currency. Usually a shop sells an item for item.value. 
 				// Editing item.value in SetupShop is an incorrect approach.
-				shop.item[nextSlot].SetDefaults(ItemType<ExampleBuffPotion>());
-				shop.item[nextSlot].shopCustomPrice = 1;
-				shop.item[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals; // omit this line if shopCustomPrice should be in regular coins. 
-				nextSlot++;
+				//shop.item[nextSlot].SetDefaults(ItemType<ExampleBuffPotion>());
+				//shop.item[nextSlot].shopCustomPrice = 1;
+				//shop.item[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals; // omit this line if shopCustomPrice should be in regular coins. 
+				//nextSlot++;
 
 			}
-			else if (type == NPCID.Wizard && Main.expertMode) {
-				shop.item[nextSlot].SetDefaults(ItemType<SparklingSphere>());
+			else if (type == NPCID.ArmsDealer && NPC.downedBoss1) {
+				shop.item[nextSlot].SetDefaults(ItemType<ExampleGun>());
 				nextSlot++;
 			}
 			else if (type == NPCID.Merchant) {
 				shop.item[nextSlot].SetDefaults(ItemType<ExampleWings>());
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(ItemID.Aglet);
 				nextSlot++;
 			}
 		}

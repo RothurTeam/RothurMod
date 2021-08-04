@@ -16,7 +16,7 @@ namespace RothurMod.Projectiles
 		public int maxTimer;
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Purity Eye");
+			DisplayName.SetDefault("Dark Eye");
 			Main.projFrames[projectile.type] = 4;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 20;
@@ -67,7 +67,7 @@ namespace RothurMod.Projectiles
 				projectile.ai[1] = newCenter.Y;
 				center = newCenter;
 			}
-			float rotateSpeed = 2f * (float)Math.PI / 60f / 4f * projectile.localAI[1];
+			float rotateSpeed = 2.1f * (float)Math.PI / 60f / 4f * projectile.localAI[1];
 			if (timer < maxTimer) {
 				projectile.Center = projectile.Center.RotatedBy(rotateSpeed, center);
 			}

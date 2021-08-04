@@ -28,7 +28,7 @@ namespace RothurMod.Items.Armor
 			item.width = 18;
 			item.height = 18;
 			item.value = 50000;
-			item.rare = 0;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 7;
 			//item.shoot = ProjectileType<LunarLamp>();
 			//item.buffType = BuffType<Buffs.LunarLampBuff>(); //The buff added to player after used the item
@@ -42,9 +42,18 @@ namespace RothurMod.Items.Armor
 		public override void UpdateEquip(Player player) {
 			player.thrownDamage += 0.06f;
 		}
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
 
 		public override void UpdateArmorSet(Player player) {
-			player.setBonus = "+12% trowing damage";
+			if (GetLang() == "ru-RU") {
+					player.setBonus = "+12% урона при метании";
+					} else {
+					player.setBonus = "+12% trowing damage";
+					}
 			player.thrownDamage += 0.12f;
 			
 		}

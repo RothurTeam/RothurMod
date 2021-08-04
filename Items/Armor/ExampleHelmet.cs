@@ -31,9 +31,18 @@ namespace RothurMod.Items.Armor
 		public override void UpdateEquip(Player player) {
 			player.minionDamage += 0.04f;
 		}
-
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
+			
 		public override void UpdateArmorSet(Player player) {
-			player.setBonus = "+4% minion damange";
+			if (GetLang() == "ru-RU") {
+					player.setBonus = "+4% урона приспешников";
+					} else {
+					player.setBonus = "+4% minion damage";
+					}
 			player.minionDamage += 0.04f;
 			/* Here are the individual weapon class bonuses.
 			player.meleeDamage -= 0.2f;

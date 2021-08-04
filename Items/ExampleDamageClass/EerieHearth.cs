@@ -27,8 +27,10 @@ namespace RothurMod.Items.ExampleDamageClass
 		public override void SafeSetDefaults() {
 			item.CloneDefaults(ItemID.EmeraldStaff);
 			item.Size = new Vector2(28, 36);
-			item.damage = 35;
+			item.damage = 37;
 			item.knockBack = 2;
+			item.useTime = 39;
+            item.useAnimation = 39;
 			item.rare = ItemRarityID.LightPurple;
 			item.width = 60;
             item.height = 60;
@@ -47,13 +49,22 @@ namespace RothurMod.Items.ExampleDamageClass
               int numberProjectiles = 3 + Main.rand.Next(4); //This defines how many projectiles to shot. 4 + Main.rand.Next(2)= 4 or 5 shots
               for (int i = 0; i < numberProjectiles; i++)
               {
-                  Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(25)); // This defines the projectiles random spread . 30 degree spread.
+                  Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(13)); // This defines the projectiles random spread . 30 degree spread.
                   Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
               }
               return false; 
-          }   
-		
-		
+          }
+
+		public override void AddRecipes() 
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemType<SpoiledSoul>(), 4);
+			recipe.AddIngredient(ItemType<NecromancersApprenticeStaff>(), 1);
+			recipe.AddIngredient(ItemID.SoulofNight, 6);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 		
 	}
 }

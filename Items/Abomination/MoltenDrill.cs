@@ -13,7 +13,7 @@ namespace RothurMod.Items.Abomination
 			public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Parodrill"); 
-			DisplayName.AddTranslation(GameCulture.Russian, "???????");
+			DisplayName.AddTranslation(GameCulture.Russian, "Пародрель");
 		}
 
 		public override void SetDefaults() {

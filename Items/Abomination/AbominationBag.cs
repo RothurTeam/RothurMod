@@ -1,5 +1,6 @@
 using RothurMod.Items.Armor;
 using RothurMod.Items.Weapons;
+using RothurMod.Items.Placeable;
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -38,12 +39,13 @@ namespace RothurMod.Items.Abomination
 			if (Main.rand.NextBool(2)) {
 				player.QuickSpawnItem(ItemType<MoltenDrill>());
 			}
-			player.QuickSpawnItem(ItemType<ElementResidue>());
+			player.QuickSpawnItem(ItemType<ElementalPurge>());
 			if (Main.rand.NextBool(2)) {
 				player.QuickSpawnItem(ItemType<PurityTotem>());
 			}
 			player.QuickSpawnItem(ItemType<HealingPotion>());
 		}
+		
 
 		public override int BossBagNPC => mod.NPCType("Abomination");
 	}

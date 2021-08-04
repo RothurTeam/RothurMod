@@ -40,7 +40,7 @@ namespace RothurMod.NPCs
 		//if (Main.hardMode);
 		{
 			//return SpawnCondition.OverworldNightMonster.Chance * 0.3f;
-			return !spawnInfo.playerSafe && Main.hardMode ? SpawnCondition.OverworldNightMonster.Chance * 0.7f : 0f;
+			return Main.hardMode ? SpawnCondition.OverworldNightMonster.Chance * 0.75f : 0f;
 		}
 	}
 

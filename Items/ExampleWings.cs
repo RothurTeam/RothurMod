@@ -13,21 +13,21 @@ namespace RothurMod.Items
 	{
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blood Wings");
+			DisplayName.SetDefault("Golden Wings");
 			Tooltip.SetDefault("");
-			DisplayName.AddTranslation(GameCulture.Russian, "Кровавые крылья");
+			DisplayName.AddTranslation(GameCulture.Russian, "Золотые крылья");
 		}
 
 		public override void SetDefaults() {
 			item.width = 22;
 			item.height = 20;
-			item.value = 250000;
+			item.value = 200000;
 			item.rare = ItemRarityID.Green;
 			item.accessory = true;
 		}
 		//these wings use the same values as the solar wings
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.wingTimeMax = 20;
+			player.wingTimeMax = 22;
 		}
 
 		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,

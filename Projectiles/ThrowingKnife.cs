@@ -16,8 +16,8 @@ namespace RothurMod.Projectiles
 		public override void SetDefaults() {
 			projectile.CloneDefaults(ProjectileID.ThrowingKnife);
 			aiType = ProjectileID.ThrowingKnife;
-			projectile.width = 60;
-			projectile.height = 22;
+			projectile.width = 40;
+			projectile.height = 20;
 		}
 
 		//public override bool PreKill(int timeLeft) {

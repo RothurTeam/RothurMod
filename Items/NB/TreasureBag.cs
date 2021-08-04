@@ -46,6 +46,9 @@ namespace RothurMod.Items.NB
 			if (Main.rand.NextBool(2)) {
 				player.QuickSpawnItem(ItemType<SBow>());
 			}
+			if (Main.rand.NextBool(2)) {
+				player.QuickSpawnItem(ItemType<StoneStaff>());
+			}
 			player.QuickSpawnItem(ItemType<MR>());
 		}
 

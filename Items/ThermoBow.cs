@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using RothurMod.Projectiles;
 
 namespace RothurMod.Items
 {
@@ -19,7 +20,7 @@ namespace RothurMod.Items
 
 		public override void SetDefaults() 
 		{
-            item.damage = 13;
+            item.damage = 11;
             item.ranged = true; 
 			item.noMelee = true;
             item.width = 22;                   
@@ -37,6 +38,15 @@ namespace RothurMod.Items
             item.autoReuse = true;
             item.useTurn = true;
 	    }
+		
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{ 
+            if (type == ProjectileID.WoodenArrowFriendly) //if you use wooden arrow
+            {
+				type = mod.ProjectileType("ThermoProj");
+            }
+            return true;
+        }
 		
         public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);

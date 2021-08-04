@@ -53,7 +53,7 @@ namespace RothurMod.Items.ExampleDamageClass
 			NecroDamageAdd = 0f;
 			NecroDamageMult = 1f;
 			NecroKnockback = 0f;
-			NecroCrit = 0;
+			NecroCrit = 4;
 			exampleResourceRegenRate = 1f;
 			exampleResourceMax2 = exampleResourceMax;
 		}

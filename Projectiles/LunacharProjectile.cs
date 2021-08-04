@@ -27,7 +27,7 @@ namespace RothurMod.Projectiles
             projectile.magic = false;                        
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
-			projectile.timeLeft = 260;
+			projectile.timeLeft = 49;
         }
  
         public override void AI()
@@ -40,22 +40,7 @@ namespace RothurMod.Projectiles
             projectile.localAI[0] += 3f;
             projectile.alpha = (int)projectile.localAI[0] * 2;
            
-            if (projectile.localAI[0] > 1200f) //projectile time left before disappears
-            {
-                projectile.Kill();
-            }
-			if (Main.rand.NextBool(1)) {
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, DustType<EtherealFlame>(),
-					projectile.velocity.X * .2f, projectile.velocity.Y * .2f, 200, Scale: 1.2f);
-				dust.velocity += projectile.velocity * 0.22f;
-				dust.velocity *= 0.25f;
-			}
-			if (Main.rand.NextBool(1)) {
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, DustType<EtherealFlame>(),
-					0, 0, 254, Scale: 0.3f);
-				dust.velocity += projectile.velocity * 0.55f;
-				dust.velocity *= 0.35f;
-			}
+			
            
         }
 		

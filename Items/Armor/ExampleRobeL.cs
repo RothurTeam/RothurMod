@@ -11,7 +11,7 @@ namespace RothurMod.Items.Armor
 	public class ExampleRobeL : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Necro leggings");
+			DisplayName.SetDefault("Necromancer's leggings");
 			Tooltip.SetDefault(""
 				+ "\n5% necro damage");
 			DisplayName.AddTranslation(GameCulture.Russian, "Поножи некроманта");

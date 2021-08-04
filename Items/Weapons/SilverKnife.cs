@@ -27,7 +27,7 @@ namespace RothurMod.Items.Weapons
 			item.useTime = 20;
 			item.useAnimation = 20;
 			item.knockBack = 3;
-			item.value = 1000;
+			item.value = Item.buyPrice(0, 0, 0, 40);
 			item.rare = 0;
 			item.shoot = 14;
 			item.shootSpeed = 12; 

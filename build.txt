@@ -1,4 +1,4 @@
 displayName = Rothur Mod
-author = Zero Project, Marco
-version = 0.2.0.2
+author = Rothur Team
+version = 0.2.1.2
 homepage = https://rothur-mod.fandom.com/ru/f

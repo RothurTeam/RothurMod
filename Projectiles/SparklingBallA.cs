@@ -20,7 +20,7 @@ namespace RothurMod.Projectiles
 
 		public override void AI() {
 			projectile.velocity.Y += projectile.ai[0];
-			if (Main.rand.NextBool(3)) {
+			if (Main.rand.NextBool(6)) {
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, DustType<SparkleG>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 			}
 		}

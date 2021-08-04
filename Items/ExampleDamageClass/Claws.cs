@@ -19,15 +19,15 @@ namespace RothurMod.Items.ExampleDamageClass
 
 		public override void SafeSetDefaults() 
 		{
-			item.damage = 66;
+			item.damage = 50;
 			item.width = 28;
 			item.height = 26;
-			item.useTime = 10;
-			item.useAnimation = 10;
+			item.useTime = 13;
+			item.useAnimation = 13;
 			item.useStyle = 1;
 			item.knockBack = 3;
-			item.value = 50000;
-			item.rare = 0;
+			item.value = 55000;
+			item.rare = ItemRarityID.Purple;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.noMelee = false;

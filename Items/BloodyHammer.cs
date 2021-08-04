@@ -36,7 +36,7 @@ namespace RothurMod.Items
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "BloodyScale", 8);  
-            recipe.AddTile(TileID.WorkBenches);   
+            recipe.AddTile(TileID.Anvils);   
             recipe.SetResult(this);  
             recipe.AddRecipe();
         }

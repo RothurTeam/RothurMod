@@ -24,9 +24,9 @@ namespace RothurMod.Items.ExampleDamageClass
 		
 
 		public override void SafeSetDefaults() {
-			item.CloneDefaults(ItemID.EmeraldStaff);
+			item.CloneDefaults(ItemID.AmethystStaff);
 			item.Size = new Vector2(28, 36);
-			item.damage = 28;
+			item.damage = 25;
 			item.knockBack = 3;
 			item.rare = 0;
 			item.width = 40;
@@ -43,7 +43,7 @@ namespace RothurMod.Items.ExampleDamageClass
 		
 		 public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            float numberProjectiles = 4; // This defines how many projectiles to shot
+            float numberProjectiles = 3; // This defines how many projectiles to shot
             float rotation = MathHelper.ToRadians(20);
             position += Vector2.Normalize(new Vector2(speedX, speedY)) * 25f; //this defines the distance of the projectiles form the player when the projectile spawns
             for (int i = 0; i < numberProjectiles; i++)

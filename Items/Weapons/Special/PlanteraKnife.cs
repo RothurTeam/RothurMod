@@ -26,8 +26,8 @@ namespace RothurMod.Items.Weapons.Special
             item.height = 36;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.autoReuse = true;
-            item.value = 5000;
-            item.rare = 2;
+            item.value = 250000;
+            item.rare = ItemRarityID.Lime;
             item.shootSpeed = 10f;
             item.shoot = ModContent.ProjectileType<PlanteraKnifeProjectile>();
 

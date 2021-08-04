@@ -26,8 +26,9 @@ namespace RothurMod.Items
 	{
 		public override void SetDefaults() {
 			DisplayName.SetDefault("Spirit of fire");
-			Description.SetDefault("Дух огня будет сражаться за тебя");
+			Description.SetDefault("The spirit of fire will fight for you");
 			DisplayName.AddTranslation(GameCulture.Russian, "Дух огня");
+			Description.AddTranslation(GameCulture.Russian, "Дух огня будет сражаться за тебя");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -159,11 +160,11 @@ namespace RothurMod.Items
 
 			#region General behavior
 			Vector2 idlePosition = player.Center;
-			idlePosition.Y -= 48f; // Go up 48 coordinates (three tiles from the center of the player)
+			idlePosition.Y -= 50f; // Go up 48 coordinates (three tiles from the center of the player)
 
 			// If your minion doesn't aimlessly move around when it's idle, you need to "put" it into the line of other summoned minions
 			// The index is projectile.minionPos
-			float minionPositionOffsetX = (10 + projectile.minionPos * 40) * -player.direction;
+			float minionPositionOffsetX = (12 + projectile.minionPos * 42) * -player.direction;
 			idlePosition.X += minionPositionOffsetX; // Go behind the player
 
 			// All of this code below this line is adapted from Spazmamini code (ID 388, aiStyle 66)
@@ -171,16 +172,16 @@ namespace RothurMod.Items
 			// Teleport to player if distance is too big
 			Vector2 vectorToIdlePosition = idlePosition - projectile.Center;
 			float distanceToIdlePosition = vectorToIdlePosition.Length();
-			if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 2000f) {
+			if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 2100f) {
 				// Whenever you deal with non-regular events that change the behavior or position drastically, make sure to only run the code on the owner of the projectile,
 				// and then set netUpdate to true
 				projectile.position = idlePosition;
-				projectile.velocity *= 0.1f;
+				projectile.velocity *= 0.13f;
 				projectile.netUpdate = true;
 			}
 
 			// If your minion is flying, you want to do this independently of any conditions
-			float overlapVelocity = 0.04f;
+			float overlapVelocity = 0.03f;
 			for (int i = 0; i < Main.maxProjectiles; i++) {
 				// Fix overlap with other minions
 				Projectile other = Main.projectile[i];
@@ -242,7 +243,7 @@ namespace RothurMod.Items
 			#region Movement
 
 			// Default movement parameters (here for attacking)
-			float speed = 8f;
+			float speed = 9f;
 			float inertia = 20f;
 
 			if (foundTarget) {

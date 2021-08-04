@@ -17,7 +17,7 @@ namespace RothurMod.Items.Weapons.Special
         }
         public override void SetDefaults() {
             item.damage = 50;
-            item.knockBack = 6f;
+            item.knockBack = 1f;
             item.useStyle = 1;  
             item.useAnimation = 15;
             item.useTime = 15;
@@ -25,11 +25,13 @@ namespace RothurMod.Items.Weapons.Special
             item.height = 41;
             item.magic = true;
             item.autoReuse = true;
-            item.value = 5000;
+            item.value = 250000;
             item.rare = 2;
             item.shootSpeed = 10f;
             item.shoot = ModContent.ProjectileType<TimeKeeperStaffAttack>();
             item.noUseGraphic = false;
+			item.noMelee = true;
+			item.mana = 4;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {

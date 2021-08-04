@@ -25,7 +25,7 @@ namespace RothurMod.Items.Weapons
 			item.useTime = 18;
 			item.damage = 18;
 			item.mana = -1;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.shoot = ModContent.ProjectileType<DemonSoulProj>();
 			item.shootSpeed = 8f;
 			item.value = Item.buyPrice(0, 0, 20, 0);

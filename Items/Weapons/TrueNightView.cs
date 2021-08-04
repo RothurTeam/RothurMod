@@ -35,7 +35,7 @@ namespace RothurMod.Items.Weapons
 			item.useAmmo = AmmoID.Arrow;           
             item.knockBack = 5;
             item.value = 30000;
-           item.rare = ItemRarityID.Yellow;
+            item.rare = ItemRarityID.Yellow;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.useTurn = true;

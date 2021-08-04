@@ -51,7 +51,7 @@ namespace RothurMod.Projectiles
 			Color? color = GetColor();
 			if (color.HasValue) {
 				int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Flame>(), 0f, 0f, 0, color.Value);
-				Main.dust[dust].velocity *= 0.4f;
+				Main.dust[dust].velocity *= 0f;
 				Main.dust[dust].velocity += projectile.velocity;
 			}
 		}

@@ -4,22 +4,30 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
 using RothurMod.Items;
+using Terraria.Localization;
 
 namespace RothurMod.Items.ExampleDamageClass
 {
 	public class DamnClaws : ExampleDamageItem
 	{
+		public override void SetStaticDefaults() 
+		{
+			DisplayName.SetDefault("Damn Claws"); 
+			Tooltip.SetDefault("");
+			DisplayName.AddTranslation(GameCulture.Russian, "Проклятые когти");
+			
+		}
 
 		public override void SafeSetDefaults() 
 		{
-			item.damage = 17;
+			item.damage = 13;
 			item.width = 28;
 			item.height = 26;
-			item.useTime = 15;
-			item.useAnimation = 15;
+			item.useTime = 17;
+			item.useAnimation = 17;
 			item.useStyle = 1;
 			item.knockBack = 3;
-			item.value = 12000;
+			item.value = 1000;
 			item.rare = 0;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;

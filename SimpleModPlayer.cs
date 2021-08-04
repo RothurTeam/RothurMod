@@ -49,13 +49,16 @@ namespace RothurMod
 	{
 		// Assigning multiple EquipType/Animation textures is easily done.
 		[AutoloadEquip(EquipType.Neck, EquipType.Balloon)]
-		internal class SimpleAccessory : ModItem
-		{
+		internal class SimpleAccessory : ModItem {
+		public override void SetStaticDefaults() {
+            DisplayName.SetDefault("Test Item");
+			}
+		
 			public override void SetDefaults() {
 				item.width = 34;
 				item.height = 34;
 				item.accessory = true;
-				item.defense = 1;
+				item.defense = 0;
 				item.value = 15000;
 				item.rare = 1;
 			}
@@ -80,7 +83,7 @@ namespace RothurMod
 				item.width = 22;
 				item.height = 22;
 				item.accessory = true;
-				item.defense = 1;
+				item.defense = 2;
 				item.value = 500;
 				item.rare = 0;
 			}

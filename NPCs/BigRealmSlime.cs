@@ -23,8 +23,8 @@ namespace RothurMod.NPCs
       npc.width = 20;               
       npc.height = 40;              
       npc.damage = 7;             
-      npc.defense = 5;             
-      npc.lifeMax = 320;            
+      npc.defense = 0;             
+      npc.lifeMax = 300;            
       npc.HitSound = SoundID.NPCHit1 ;            
       npc.DeathSound = SoundID.NPCDeath2 ;          
       npc.value = 30f;             
@@ -51,7 +51,11 @@ namespace RothurMod.NPCs
     public override void NPCLoot()
     {
 	  Item.NewItem(npc.getRect(), mod.ItemType("RealmBag"));
-
+		
+		if (Main.rand.Next(2) == 0)
+		    {
+	          Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BossItem"), Main.rand.Next(1, 3));
+			};
     }
 	
   }

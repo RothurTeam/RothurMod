@@ -22,15 +22,15 @@ namespace RothurMod.Items.Weapons.Special
             item.useStyle = 1;  
             item.useAnimation = 17;
             item.useTime = 17;
-            item.width = 22;
-            item.height = 36;
+            item.width = 19;
+            item.height = 35;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.autoReuse = true;
-            item.value = 5000;
-            item.rare = 2;
-            item.shootSpeed = 10f;
+            item.value = 250000;
+            item.rare = ItemRarityID.Yellow;
+            item.shootSpeed = 12f;
             item.shoot = ModContent.ProjectileType<GolemKnifeProjectile>();
-
+			item.UseSound = SoundID.Item1;
             item.noUseGraphic = true;
             item.thrown = true;
 

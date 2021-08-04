@@ -21,8 +21,8 @@ namespace RothurMod.Items
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.useTime = 19;
+            item.useAnimation = 19;
             item.pick = 45;    
             item.useStyle = 1;
             item.knockBack = 6;

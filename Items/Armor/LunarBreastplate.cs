@@ -24,7 +24,7 @@ namespace RothurMod.Items.Armor
 			item.width = 18;
 			item.height = 18;
 			item.value = 20000;
-			item.rare = 0;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 10;
 		}
 

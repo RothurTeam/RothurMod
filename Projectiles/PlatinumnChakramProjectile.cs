@@ -12,8 +12,8 @@ namespace RothurMod.Projectiles
 		}
 
 		public override void SetDefaults() {
-			projectile.CloneDefaults(ProjectileID.ThornChakram);
-			aiType = ProjectileID.ThornChakram;
+			projectile.CloneDefaults(ProjectileID.WoodenBoomerang);
+			aiType = ProjectileID.WoodenBoomerang;
 		}
 
 		//public override bool PreKill(int timeLeft) {

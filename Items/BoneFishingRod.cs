@@ -21,6 +21,8 @@ namespace RothurMod.Items
 		
         public override void SetDefaults()
         {
+			item.width = 50;
+            item.height = 34;
             item.CloneDefaults(ItemID.WoodFishingPole);  
             item.fishingPole = 25; //this defines the fishing pole fishing power
             item.value = Item.buyPrice(0, 0, 10, 0); 

@@ -29,6 +29,8 @@ namespace RothurMod.Items.ExampleDamageClass
 			item.CloneDefaults(ItemID.AmethystStaff);
 			item.Size = new Vector2(28, 36);
 			item.damage = 60;
+			item.width = 47;
+            item.height = 47;
 			item.magic = false;
 			item.knockBack = 4;
 			item.rare = 4; 

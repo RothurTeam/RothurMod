@@ -164,7 +164,7 @@ namespace RothurMod
 		}
 
 		public override void UpdateBiomes() {
-			//ZoneExample = ExampleWorld.exampleTiles > 200;
+			ZoneExample = ExampleWorld.exampleTiles > 40;
 		}
 
 		public override bool CustomBiomesMatch(Player other) {

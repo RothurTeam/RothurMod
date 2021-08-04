@@ -21,21 +21,21 @@ namespace RothurMod.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 52;
+			item.damage = 46;
 			item.melee = true;
 			item.width = 58;
 			item.height = 48;
-			item.useTime = 20;
-			item.useAnimation = 20;
+			item.useTime = 28;
+			item.useAnimation = 28;
 			item.useStyle = 1;
 			item.knockBack = 6;
 			item.value = 50000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			//item.shoot = ProjectileType<Lunar>();
 			item.shootSpeed = 9f;
-			item.shoot = ProjectileType<LunarProjectile>();
+			item.shoot = ProjectileType<LunarBladeProj>();
 		}
 
 		public override void AddRecipes() {

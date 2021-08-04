@@ -19,17 +19,19 @@ namespace RothurMod.Items.Armor
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Lunar Hood");
 			Tooltip.SetDefault(""
-				+ "+10% necro damage");
+				+ "\n+5% necro crit"
+				+ "\n+10% necro damage");
 			DisplayName.AddTranslation(GameCulture.Russian, "Лунный капюшон");
 			Tooltip.AddTranslation(GameCulture.Russian, ""
-				+ "+10% некромантического урона");
+				+ "\n+5% некро крит"
+				+ "\n+10% некромантического урона");
 		}
 
 		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
 			item.value = 50000;
-			item.rare = 0;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 6;
 			//item.shoot = ProjectileType<LunarLamp>();
 			//item.buffType = BuffType<Buffs.LunarLampBuff>(); //The buff added to player after used the item
@@ -42,10 +44,20 @@ namespace RothurMod.Items.Armor
 		
 		public override void UpdateEquip(Player player) {
 			ExampleDamagePlayer.ModPlayer(player).NecroDamageAdd += 0.06f;
+			ExampleDamagePlayer.ModPlayer(player).NecroCrit += 5;
 		}
-
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
+			
 		public override void UpdateArmorSet(Player player) {
-			player.setBonus = "+12% necro damage";
+			if (GetLang() == "ru-RU") {
+					player.setBonus = "+12% некромантического урона";
+					} else {
+					player.setBonus = "+12% necromancer damage";
+					}
 			ExampleDamagePlayer.ModPlayer(player).NecroDamageAdd += 0.12f;
 			//Player.AddBuff<Buffs.ExampleDefenseBuff>();
 			//player.AddBuff(ModContent.BuffType<Buffs.LunarLampBuff>(), 2);

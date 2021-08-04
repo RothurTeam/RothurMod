@@ -13,10 +13,10 @@ namespace RothurMod.Items.Armor
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Bloody Leggings");
 			Tooltip.SetDefault(""
-				+ "\n11% damage");
+				+ "\n11% necro damage");
 			DisplayName.AddTranslation(GameCulture.Russian, "Кровавые поножи");
 			Tooltip.AddTranslation(GameCulture.Russian, ""
-				+ "+11% урона");
+				+ "+11% некромантического урона");
 			
 		}
 
@@ -24,12 +24,12 @@ namespace RothurMod.Items.Armor
 			item.width = 18;
 			item.height = 18;
 			item.value = 20000;
-			item.rare = 0;
+			item.rare = ItemRarityID.Red;
 			item.defense = 4;
 		}
 
 		public override void UpdateEquip(Player player) {
-			player.allDamage += 0.11f;
+			ExampleDamagePlayer.ModPlayer(player).NecroDamageAdd += 0.11f;
 		}
 
 		public override void AddRecipes() {

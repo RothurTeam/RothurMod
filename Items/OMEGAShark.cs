@@ -16,7 +16,7 @@ namespace RothurMod.Items
 		}
 
 		public override void SetDefaults() {
-			item.damage = 10;
+			item.damage = 11;
 			item.ranged = true;
 			item.width = 70;
 			item.height = 28;
@@ -25,7 +25,7 @@ namespace RothurMod.Items
 			item.useStyle = 5;
 			item.noMelee = true; //so the item's animation doesn't do damage
 			item.knockBack = 4;
-			item.value = Item.buyPrice(gold: 25);
+			item.value = Item.buyPrice(gold: 15);
 			item.rare = 1;
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;

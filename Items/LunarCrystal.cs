@@ -1,3 +1,5 @@
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.Localization;
@@ -19,7 +21,7 @@ namespace RothurMod.Items
 			item.height = 18;
 			item.maxStack = 99;
 			item.value = 10000;
-			item.rare = 0;
+			item.rare = ItemRarityID.Blue;
 		}
 
 		

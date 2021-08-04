@@ -1,4 +1,6 @@
 Rothur Mod is a new mod that adds new items and monsters to the game
+0.2.1. already available! :D
+A small but interesting content is waiting for you in this update
 
 - 200+ new items
 - 10+ new enemy
@@ -8,6 +10,8 @@ Rothur Mod is a new mod that adds new items and monsters to the game
 - mini biom
 ___________________________
 Rothur Mod - это новый мод добавляющий в игру новые предметы и монстров
+0.2.1. уже доступно! :D
+Небольшой, но интересный контент ждет вас в этом обновлении
 
 - 200+ новых предметов
 - 10+ новых врагов

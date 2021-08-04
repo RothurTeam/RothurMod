@@ -25,22 +25,7 @@ namespace RothurMod.NPCs
       animationType = NPCID.Zombie;      
     }
 
-    public override float SpawnChance(NPCSpawnInfo spawnInfo)           
-    {
-      return SpawnCondition.OverworldNightMonster.Chance * 1f;
-    }
-
-    public override void NPCLoot()
-    {
-        if (Main.netMode != 1)	
-	    {	  
-	      
-		  if (Main.rand.Next(10) == 0)
-		    {
-	          Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PartySword"));
-			};
-		}	   
-    }     
+         
 	
   }
 }

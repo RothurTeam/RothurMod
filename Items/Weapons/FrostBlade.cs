@@ -29,7 +29,7 @@ namespace RothurMod.Items.Weapons
 			item.useStyle = 1;
 			item.knockBack = 6;
 			item.value = 50000;
-			item.rare = 0;
+			item.rare = 1;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}

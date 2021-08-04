@@ -13,17 +13,23 @@ namespace RothurMod.Tiles
 	public class CrystalBlock : ModTile
 	{
 		public override void SetDefaults() {
-			Main.tileSolid[Type] = true; // Is the tile solid
-            Main.tileMergeDirt[Type] = true; // Will tile merge with dirt?
-            Main.tileLighted[Type] = true; // ???
-            Main.tileBlockLight[Type] = false; // Emits Light
-            Main.tileSpelunker[Type] = false;
+			TileID.Sets.Ore[Type] = true;
+			Main.tileSpelunker[Type] = true; // The tile will be affected by spelunker highlighting
+			Main.tileValue[Type] = 410; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
+			Main.tileShine2[Type] = true; // Modifies the draw color slightly.
+			Main.tileShine[Type] = 975; // How often tiny dust appear off this tile. Larger is less frequently
+			Main.tileMergeDirt[Type] = true;
+			Main.tileSolid[Type] = true;
+			Main.tileBlockLight[Type] = true;
 
-            drop = TileID.Dirt; 
+			dustType = 84;
+
+			drop = ModContent.ItemType<Items.Placeable.CrystalBlock>();
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Crystal Sand");
-            AddMapEntry(new Color(255, 153, 204), name);
+            name.SetDefault("Hardened crystal sand");
+            AddMapEntry(new Color(255, 182, 193), name);
             minPick = 10;
+			SetModTree(new ExampleTree());
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num) {
@@ -35,8 +41,11 @@ namespace RothurMod.Tiles
 			g = 0.5f;
 			b = 0.5f;
 		}
-
 		
+		public override int SaplingGrowthType(ref int style) {
+			style = 1;
+			return ModContent.TileType<ExampleSapling>();
+		}
 
 	}
 }

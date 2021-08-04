@@ -12,7 +12,7 @@ namespace RothurMod.Items.Armor
 	public class ArmorH : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Necro hood");
+			DisplayName.SetDefault("Necromancer's hood");
 			Tooltip.SetDefault("");
 			DisplayName.AddTranslation(GameCulture.Russian, "Капюшон некроманта");
 			Tooltip.AddTranslation(GameCulture.Russian, "");
@@ -29,9 +29,18 @@ namespace RothurMod.Items.Armor
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ItemType<ExampleRobe>() && legs.type == ItemType<ExampleRobeL>();
 		}
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
 
 		public override void UpdateArmorSet(Player player) {
-			player.setBonus = "+5% necro damage";
+			if (GetLang() == "ru-RU") {
+					player.setBonus = "+5% некромантического урона";
+					} else {
+					player.setBonus = "+5% necromancer damage";
+					}
 			ExampleDamagePlayer.ModPlayer(player).NecroDamageAdd += 0.05f;
 			/* Here are the individual weapon class bonuses.
 			player.meleeDamage -= 0.2f;

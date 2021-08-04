@@ -19,8 +19,8 @@ namespace RothurMod.Projectiles
  
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 55;
+            projectile.width = 12;
+            projectile.height = 30;
             projectile.friendly = true;
             projectile.aiStyle = 1;
             projectile.thrown = true;

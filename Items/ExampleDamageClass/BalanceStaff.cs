@@ -27,7 +27,7 @@ namespace RothurMod.Items.ExampleDamageClass
 		public override void SafeSetDefaults() {
 			item.CloneDefaults(ItemID.EmeraldStaff);
 			item.Size = new Vector2(28, 36);
-			item.damage = 16;
+			item.damage = 20;
 			item.knockBack = 1;
 			item.rare = 1;
 			item.width = 52;

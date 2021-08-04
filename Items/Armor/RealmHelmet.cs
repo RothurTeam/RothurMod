@@ -27,9 +27,19 @@ namespace RothurMod.Items.Armor
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ItemType<RealmBreastplate>() && legs.type == ItemType<RealmLeggings>();
 		}
+		
+		private string GetLang(){ 
+            var culture = Language.ActiveCulture.Name;
+            return culture;
+			}
 
 		public override void UpdateArmorSet(Player player) {
-			player.setBonus = "";
+			if (GetLang() == "ru-RU") {
+					player.setBonus = "+10% к увеличению скорости передвижения ";
+					} else {
+					player.setBonus = "+10% increased movement speed";
+					}
+			player.moveSpeed += 0.1f;
 			/* Here are the individual weapon class bonuses.
 			player.meleeDamage -= 0.2f;
 			player.thrownDamage -= 0.2f;

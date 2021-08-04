@@ -19,8 +19,8 @@ namespace RothurMod.Items
 		public override void SetDefaults() 
 		{
 			
-			item.width = 28;
-			item.height = 28;
+			item.width = 20;
+			item.height = 20;
 			item.maxStack = 99;
 			item.value = 50;
 			item.rare = 0;

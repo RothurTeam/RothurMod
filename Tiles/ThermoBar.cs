@@ -21,7 +21,7 @@ namespace RothurMod.Tiles
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.addTile(Type);
 
-			AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.MetalBar")); // localized text for "Metal Bar"
+			AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.ThermoBar")); // localized text for "Metal Bar"
 		}
 
 		public override bool Drop(int i, int j)

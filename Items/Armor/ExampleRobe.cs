@@ -12,10 +12,10 @@ namespace RothurMod.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Necro robe");
+			DisplayName.SetDefault("Necromancer's Shirt");
 			Tooltip.SetDefault(""
 				+ "+6% necro damage");
-			DisplayName.AddTranslation(GameCulture.Russian, "Роба некроманта");
+			DisplayName.AddTranslation(GameCulture.Russian, "Рубашка некроманта");
 			Tooltip.AddTranslation(GameCulture.Russian, ""
 				+ "+6% некромантического урона");
 		}
@@ -32,26 +32,6 @@ namespace RothurMod.Items.Armor
 			ExampleDamagePlayer.ModPlayer(player).NecroDamageAdd += 0.06f;
 		}
 		
-		public override bool Autoload(ref string name)
-        {
-            mod.AddEquipTexture(new DressLegs(), null, EquipType.Legs, "ExampleRobeL", "RothurMod/Items/Armor/ExampleRobeL_Legs");
-            return true;
-        }
-
-		public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
-        {
-            robes = true;
-
-            if (male) equipSlot = mod.GetEquipSlot("ExampleRobeL_Legs", EquipType.Legs);
-        }
-
-		public class DressLegs : EquipTexture
-    	{
-    	}
-
-		public override void DrawHands(ref bool drawHands, ref bool drawArms) {
-			drawHands = true;
-		}
 
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
